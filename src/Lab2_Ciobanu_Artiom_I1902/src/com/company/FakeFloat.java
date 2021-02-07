@@ -51,6 +51,7 @@ public class FakeFloat
         Set_Value(_value * value.Get_Value());
     }
 
+    //Остаток от деления
     public void Remainder(FakeFloat value) throws NotAllowedNumberException
     {
         Set_Value(_value % value.Get_Value());

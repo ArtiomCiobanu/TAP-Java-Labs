@@ -39,7 +39,7 @@ public class Main
             System.out.printf("Значение 2 умноженное на значение 1: %s %n", fakeFloat2.Get_Value());
 
             fakeFloat1.Remainder(new FakeFloat(5));
-            System.out.printf("Значение остаток от деления значения 1 на 5: %s %n", fakeFloat1.Get_Value());
+            System.out.printf("Остаток от деления значения 1 на 5: %s %n", fakeFloat1.Get_Value());
         } catch (NotAllowedNumberException exception)
         {
             System.out.printf("%n Ошибка! %s %n", exception.getMessage());
