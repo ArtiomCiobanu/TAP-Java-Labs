@@ -9,6 +9,11 @@ public class Order
     public String LastName;
     public String Description;
 
+    public Order()
+    {
+
+    }
+
     public Order(int number, int creationYear, int houseNumber, String firstName, String lastName, String description)
     {
         Number = number;
