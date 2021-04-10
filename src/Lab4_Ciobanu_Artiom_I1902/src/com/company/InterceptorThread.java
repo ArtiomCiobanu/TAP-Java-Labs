@@ -2,25 +2,30 @@ package com.company;
 
 public class InterceptorThread extends Thread
 {
-    Thread _runnable;
+    private final String _monitor;
+    private Thread _runnable;
 
-    public InterceptorThread(Thread runnable)
+    public InterceptorThread(String monitor, NotifierThread notifierThread)
     {
-        _runnable = runnable;
+        _monitor = monitor;
+        _runnable = notifierThread;
     }
 
-    public synchronized void run()
+    @Override
+    public void run()
     {
         System.out.println("InterceptorThread has started to work!");
 
-        //_runnable.start();
-
-        _runnable.run();
+        _runnable.start();
 
         try
         {
             System.out.println("InterceptorThread is waiting.");
-            wait();
+
+            synchronized (_monitor)
+            {
+                _monitor.wait();
+            }
 
             System.out.println("InterceptorThread is resuming.");
         } catch (InterruptedException interruptedException)

@@ -1,5 +1,6 @@
 package com.company;
 
+
 //Создайте два подкласса Thread, один, использующий run( ) для запуска,
 //и перехватывающий ссылку на второй процесс Thread, а затем вызывающий wait( ).
 //Вызов run() второго класса должен вызывать notifyAll( ) для первого процесса
@@ -8,10 +9,11 @@ public class Main
 {
     public static void main(String[] args)
     {
-        var notifierThread = new NotifierThread();
+        String message = "Message!";
 
-        var interceptorThread = new InterceptorThread(notifierThread);
+        var notifierThread = new NotifierThread(message);
+
+        var interceptorThread = new InterceptorThread(message, notifierThread);
         interceptorThread.start();
-        //notifierThread.start();
     }
 }

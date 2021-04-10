@@ -2,18 +2,26 @@ package com.company;
 
 public class NotifierThread extends Thread
 {
+    private final String _monitor;
+
+    public NotifierThread(String monitor)
+    {
+        _monitor = monitor;
+    }
+
+    @Override
     public void run()
     {
         System.out.println("NotifierThread has started to work!");
 
         try
         {
-            synchronized (this)
+            synchronized (_monitor)
             {
-                 wait(1000);
+                _monitor.wait(1000);
 
                 System.out.println("NotifierThread is notifying.");
-                notifyAll();
+                _monitor.notifyAll();
             }
         } catch (InterruptedException interruptedException)
         {
